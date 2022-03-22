@@ -35,24 +35,3 @@ resource "azurerm_windows_virtual_machine" "win_vm" {
     version   = var.os_version
   }
 }
-
-resource "azurerm_virtual_machine_extension" "la_workspace" {
-    name = azurerm_windows_virtual_machine.win_vm.name
-    virtual_machine_id = azurerm_windows_virtual_machine.win_vm.id
-    publisher = "Microsoft.EnterpriseCloud.Monitoring"
-    type = "MicrosoftMonitoringAgent"
-    type_handler_version = var.la_agent_version
-    auto_upgrade_minor_version = "true"
-
-    settings = <<SETTINGS
-        {
-            "workspaceId": "${var.la_workspace_id}"
-        }
-    SETTINGS
-
-       protected_settings = <<PROTECTED_SETTINGS
-   {
-      "workspaceKey": "${var.la_primary_shared_key}"
-   }
-PROTECTED_SETTINGS
-}
