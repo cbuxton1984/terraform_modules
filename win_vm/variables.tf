@@ -50,7 +50,6 @@ variable "os_version" {
     type = string
 }
 
-}
 variable "tags" {
     description = "Resource Group Tags"
     type = map(any)
