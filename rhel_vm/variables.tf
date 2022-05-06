@@ -50,21 +50,6 @@ variable "os_version" {
     type = string
 }
 
-variable "la_workspace_id" {
-    description = "Log Analytics Workspace ID"
-    type = string
-}
-
-variable "la_primary_shared_key" {
-    description = "Log Analytics Workspace Primary Key"
-    type = string
-}
-
-variable "la_agent_version" {
-    description = "Log Analytics Agent Version"
-    type = string
-}
-
 variable "tags" {
     description = "Resource Group Tags"
     type = map(any)
